@@ -1,12 +1,19 @@
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Axelerant: Interview Frontend</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Axelerant: Interview Frontend</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-    <h3>Welcome</h3>
-    {% include "_button.html.twig" %}
-
-    <script src="main.js"></script>
+  <div class="page-wrapper">
+    {% include "header.html.twig" %}
+    {% include "heroBanner.html.twig" %}
+    {% include "content.html.twig" %}
+    {% include "connect.html.twig" %}
+    {% include "footer.html.twig" %}
+  </div>
+  <script src="main.js"></script>
 </body>
+</html>

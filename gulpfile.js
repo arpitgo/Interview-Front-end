@@ -18,6 +18,10 @@ gulp.task('twig', () => {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('copy', function() {
+  return gulp.src('src/images/*').pipe(gulp.dest('dist/images'));
+});
+
 gulp.task('sass', () => {
   return gulp
     .src('src/sass/*.scss')
@@ -27,7 +31,7 @@ gulp.task('sass', () => {
         includePaths: ['./node_modules']
       })
     )
-    .pipe(autoprefixer({ browsers: ['last 2 versions'] }))
+    .pipe(autoprefixer({ overrideBrowserslist: ['last 2 versions'] }))
     .pipe(gulp.dest('dist'));
 });
 
@@ -66,7 +70,7 @@ gulp.task('browsersync', () => {
 });
 
 gulp.task('lint', gulp.parallel('stylelint', 'eslint'));
-gulp.task('build', gulp.parallel('twig', 'sass', 'babel'));
+gulp.task('build', gulp.parallel('twig', 'sass', 'babel', 'copy'));
 gulp.task('server', gulp.series('build', gulp.parallel('browsersync')));
 
 gulp.task('default', gulp.series('lint', 'build'));
